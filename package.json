@@ -1,0 +1,34 @@
+{
+  "name": "screwdriver-saucelabs-example",
+  "version": "1.0.0",
+  "description": "A sample repository, which serves as an example of how to use Screwdriver for SauceLabs testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor ./spec/conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/screwdriver-cd-test/saucelabs-example.git"
+  },
+  "keywords": [
+    "screwdriver",
+    "screwdriver-cd",
+    "yahoo",
+    "continuous delivery",
+    "cd",
+    "continuous integration",
+    "ci"
+  ],
+  "author": "Darren Matsumoto <aeneascorrupt@gmail.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/screwdriver-cd-test/saucelabs-example/issues"
+  },
+  "homepage": "https://github.com/screwdriver-cd-test/saucelabs-example#readme",
+  "private": true,
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "protractor": "^5.1.1"
+  }
+}

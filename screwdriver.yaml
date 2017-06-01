@@ -1,0 +1,41 @@
+---
+# Shared definition block
+# This is where you would define any attributes that all your jobs will
+# inherit.
+shared:
+    # We specify a common NodeJS Docker image for our Jobs. It takes the form of
+    # "repo_name:tag_label", where the "tag_label" is optional.
+    # Docker image - https://hub.docker.com/r/library/node/
+    image: node:8
+    # Allowed secrets block.
+    # This list of secrets that are explicitly allowed to be exposed during the
+    # "main" Job.
+    # Screwdriver document reference - http://docs.screwdriver.cd/user-guide/configuration/secrets/
+    secrets:
+        # We require the SauceLabs API key to be available so that we can properly authenticate
+        # with the SauceLabs service. Our secret is stored as "SAUCE_KEY", and is accessible in
+        # the build as an environment variable with the same name
+        - SAUCE_KEY
+        # We require the SauceLabs username to be available so that we can properly authenticate
+        # with the SauceLabs service. Our secret is stored as "SAUCE_USER", and is accessible in
+        # the build as an environment variable with the same name
+        - SAUCE_USER
+
+# Jobs definition block
+# All pipelines have "main" by default, and is implicitly defined.
+jobs:
+    # We explicitly define "main" in our configuration so that it does what we want
+    # it to do.
+    main:
+        # Steps is the ordered list of commands to execute.
+        # Each step takes the form "step_name: command_to_run". The "step_name" is a
+        # convenient label to reference it by. The "command_to_run" is the single 
+        # command that is executed during the step.
+        steps:
+            # Our "install" step is first in the list. It installs your NodeJS dependencies
+            # NPM reference document - https://docs.npmjs.com/cli/install
+            - install: npm install
+            # The next step is "test". It tests your NodeJS package using your SauceLabs-based
+            # settings and tests
+            # NPM reference document - https://docs.npmjs.com/cli/test
+            - func_test: npm test
