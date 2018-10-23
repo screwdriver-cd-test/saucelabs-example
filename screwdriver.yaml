@@ -38,7 +38,6 @@ jobs:
             # Our "install" step is first in the list. It installs your NodeJS dependencies
             # NPM reference document - https://docs.npmjs.com/cli/install
             - install: npm install
-            - update: node node_modules/protractor/bin/webdriver-manager update
             # The next step is "test". It tests your NodeJS package using your SauceLabs-based
             # settings and tests
             # NPM reference document - https://docs.npmjs.com/cli/test
